@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/moon.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+		<script src="js/caesar.js"></script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-video="media/bg.mp4" data-background-video-loop="loop">
+					<h1>Cryptography</h1>
+					<p>&#x2192;</p>
+				</section>
+				<section data-background-image="media/2.jpg">
+					<p>
+						<span style='color: #FFFF00;'><b>Cryptography</b></span> is the art of writing information in a way that it's only readable to those who should see it and conceal it from eavesdroppers.
+					</p>
+					<p>&#x2192;</p>
+				</section>
+				<section>
+					<section><H2>Applications of cryptography</h2><p>&#x2193;&nbsp;&nbsp;&nbsp;&#x2193;&nbsp;&nbsp;&nbsp;&#x2193;</p></section>
+					<section> <h2>EARLY AGE</h2><p> The early applications of cryptography were during the war times to convey secret messages.</p> <p>&#x2193;</p> </section>
+					<section data-background-image="media/3.jpg"> <h2>100 BC</h2>		<p> One of the most mentioned cipher is the subsititution cipher, or most commonly known as <span style='color: #FFFF00;'>Caesar cipher</span>. Caesar used this to communicate to his army generals.</p> <p>&#x2193;</p> </section>
+					<section> <h2>MODERN AGE</h2><p> Even in the modern age, cryptography were often as a tool of war.</p> <p>&#x2193;</p> </section>
+					<section data-background-image="media/enigma.gif"> <h2>WORLD WAR II</h2>		<p> <span style='color: #FF0000;'>Enigma</span> was an enciphering machine used by the germans to encrypt their transmissions. Alan Turing, and his team played a key role in inventing a machine known as <span style='color: #FFF000;'>The Bombe</span>. This machine was used to assist the code-breakers from deciphering german transmissions, and helped shorten WW2 	.</p> <p>&#x2193;</p> </section>
+					<section> <h2>POSTMODERNITY</h2><p> With the ubiquity of internet devices, the postmodern applications of cryptography are often seen in Cybersecurity.</p> <p>&#x2193;</p> </section>
+					<section data-background-image="media/messaging.jpg"> <h2>Messaging</h2> <p>Instant messaging technologies like WhatsApp uses end-to-end encryption to safeguard the user's messages from eavesdroppers.</p><p>&#x2193;</p> </section>
+					<section data-background-image="media/transactions.jpg"> <h2>Transactions</h2> <p>Most of transactions today are done online. Websites protect critical information like credit card numbers or bank account numbers via Secure Sockets Layer (SSL). 	<p>&#x2192;</p> </section>
+				</section>
+
+				<section><h2>SIMPLE CIPHERS</h2> <p>&#x2192;</p></section>
+				<section>
+					<section data-background-image="media/caesar-war.jpg"><h2>CAESAR CIPHER</h2> <img src="media/caesar.gif" align="left"> <p align="right">Caesar Cipher is named after Julius Caesar, a Roman military general.</p> <p align="right"><br>It works by shifting the letters to the right for N number of times. <br><br>In Julius' case, he shifts 3 times.</p><p>&#x2193;</p></section>
+					<section data-background-image="media/caesar.gif" data-background-opacity=0.13>
+						<h2>CAESAR CIPHER IN ACTION</h2>
+						<div id = "appCanvas">
+							<form><span style="font-size: 20px"><b>Key:</b></span> <input type="number" id="shiftBox" min=0 max=26 value=0></form>
+							<textarea id="plainTextBox" rows="6" cols="50" placeholder="PLAIN TEXT"></textarea><br>
+							<button id="encryptBtn" type="button" onClick="encrypt()">&#x2193; ENCRYPT &#x2193;</button><br>
+							<textarea id="outputBox" rows="6" cols="50" placeholder="OUTPUT"></textarea><br>
+							<button id="decryptBtn" type="button" onClick="decrypt()">&#x2191; DECRYPT &#x2191;</button><br>
+							<textarea id="cipherTextBox" rows="6" cols="50" placeholder="CIPHER TEXT"></textarea>
+						</div>
+
+						<script>
+						function encrypt() {
+							var plainTxt = document.getElementById("plainTextBox").value;
+							var key = parseInt(document.getElementById("shiftBox").value);
+							caesarShift(plainTxt, key);
+						}
+
+						function decrypt() {
+							var cipherTxt = document.getElementById("cipherTextBox").value;
+							var key = parseInt(document.getElementById("shiftBox").value)	;
+							caesarShift(cipherTxt, key*(-1));
+						}
+						</script>
+					</section>
+				</section>
+			</div>
+		</div>
+
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+
+
+
+	</body>
+</html>
